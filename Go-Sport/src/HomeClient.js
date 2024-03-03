@@ -23,28 +23,28 @@ function HomeClient({ user }) {
     <div>
       <h1>Bonjour, bienvenue {user1.firstname} !</h1>
       <table>
-      <tbody>
-        <tr>
-          <th>Email</th>
-          <th>Password</th>
-        </tr>
-        <tr>
-          <td>{user.email}</td>
-          <td>{user.password}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+          <tr>
+            <td>{user.email}</td>
+            <td>{user.password}</td>
+          </tr>
         </tbody>
       </table>
       <h1>Mes factures</h1>
-      <FactureClient user = {user1}/>
+      <FactureClient user={user1} />
 
       <h1>Mes paiements</h1>
-      <PaiementClient user = {user1}/>
+      <PaiementClient user={user1} />
 
       <h1>Nos Entrainements ouverts</h1>
-      <PlanningOuvert/>
+      <PlanningOuvert />
 
       <h1>Nos Entrainements fermés</h1>
-      <Planning/>
+      <Planning />
 
 
       <button onClick={() => setPage('factures')}>Mes factures</button>

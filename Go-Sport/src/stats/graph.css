@@ -1,0 +1,31 @@
+/* Définition des couleurs personnalisées */
+:root {
+  --blue-500: #390099;
+  --blue-400: #4361ee;
+  --yellow-500: #ffbd00;
+  --yellow-400: #f48c06;
+  --green-500: #31572c;
+  --green-400: #90a955;
+  --text-color: #ad2831;
+  --text-color-secondary: #800e13;
+  --surface-border: #640d14;
+  --pink-500: #ff477e;
+}
+
+/* Styles du graphique */
+.card_dropdown {
+  width: 100%;
+  max-width: 60px; /* Ajustez la largeur maximale selon vos besoins */
+  margin: 0 auto;
+}
+
+/* Styles des étiquettes */
+.card_pie {
+  color: var(--text-color);
+  width: 500px;
+}
+
+/* Styles des couleurs de fond au survol */
+.card_vb {
+  width: 500px;
+}

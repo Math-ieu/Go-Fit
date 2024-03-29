@@ -65,6 +65,10 @@ CREATE TABLE public.affecter_client_ferme (
     id_entrainement_ferme integer
 );
 
+CREATE TABLE public.affecter_client_ouvert (
+    id_client integer,
+    id_entrainement_ouvert integer
+);
 
 ALTER TABLE public.affecter_client_ferme OWNER TO postgres;
 

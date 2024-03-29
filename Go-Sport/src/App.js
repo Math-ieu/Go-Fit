@@ -1,12 +1,12 @@
 import React from 'react'
-import {Header, Banner, About, Workouts, Pricing, Community, Faq, Join, Footer} from './components/index'
+import { Header, Banner, About, Workouts, Pricing, Community, Faq, Join, Footer } from './components/index'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import InscriptionConnexion from './Inscription_Connexion';
 import PayerFacture from './ReglerFacture';
 import ClientTable from './ClientTable';
 import EntraineurTable from './EntraineurTable';
 import AjoutEntraineur from './AjoutEntraineur';
-import AjouterClient from './AjouterClient'; 
+import AjouterClient from './AjouterClient';
 import AjoutEquipement from './AjoutEquipement';
 import EquipmentTable from './EquipmentTable';
 import Planning from './Planning';
@@ -27,6 +27,7 @@ import PlanningEntraineur from './PlanningEntraineur';
 import PlanningOuvertEntraineur from './PlanningOuvertEntraineur';
 import PlanningGestionnaire from './PlanningGestionnaire';
 import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
+import Graph from './stats/graph';
 // import aos
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -36,14 +37,13 @@ const App = () => {
 
   // aos initialization
   Aos.init({
-      duration: 2500,
-      delay: 400,
+    duration: 2500,
+    delay: 400,
   });
 
   return (
     <Router>
       <div className="App">
-      
         <Routes>
           <Route path="/PayerFacture" element={<PayerFacture />} />
           <Route path="/AjouterClient" element={<AjouterClient />} />
@@ -71,23 +71,24 @@ const App = () => {
           <Route path="/RapportTable" element={<RapportTable />} />
           <Route path="/EquipmentTable" element={<EquipmentTable />} />
           <Route path="/inscription_connexion" element={<InscriptionConnexion />} />
-          <Route path="/" element={<> 
+          <Route path="/stats" element={<Graph />} />
+          <Route path="/" element={<>
             <div className='max-w-[1440px] mx-auto bg-page overflow-hidden relative'>
-      <Header/>
-      <Banner/>
-      <About/>
-      <Workouts/>
-      <Pricing/>
-      <Community/>
-      <Faq/>
-      <Join/>
-      <Footer/>
-    </div>
-            </>} />
+              <Header />
+              <Banner />
+              <About />
+              <Workouts />
+              <Pricing />
+              <Community />
+              <Faq />
+              <Join />
+              <Footer />
+            </div>
+          </>} />
         </Routes>
       </div>
     </Router>
-    
+
   )
 }
 

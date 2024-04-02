@@ -3,7 +3,7 @@ const axios = require('axios');
 const fetchStatsMembresInscritHomme = async (intervale, periode) => {
     try {
         const res = await axios.get('http://localhost:3001/stats/membresinscrithomme', {
-            params: { intervale, periode }
+            intervale: intervale, periode: periode
         });
         return res.data; // Renvoie les données de la réponse
     } catch (error) {
@@ -85,6 +85,6 @@ const fetchStatsMembresInscritParMoisAnneeFemme = async (annee) => {
     }
 };
 
-console.log(fetchStatsMembresInscritHomme("2", "year"));
+console.log(fetchStatsMembresInscritHomme(2, "year"));
 
 module.exports = { fetchStatsMembresInscritHomme, fetchStatsMembresInscritFemme, fetchStatsMembresParTypeAbonnement, fetchStatsMembreParEntrainementFerme, fetchStatsMembreParEntrainementOuvert, fetchStatsMembresInscritParMoisAnneeFemme, fetchStatsMembresInscritParMoisAnneeHomme };

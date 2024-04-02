@@ -265,7 +265,7 @@ app.get('/paiements/:id', async (req, res, next) => {
 app.get('/stats/membresinscrithomme', async (req, res) => {
   const { intervale, periode } = req.body;
   try {
-    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'M' AND registrationdate >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`)
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'M' AND registrationdate >= CURRENT_DATE - INTERVAL '2 year';`)
     res.json(result.rows);
   } catch (error) {
     console.error('Error processing', error);

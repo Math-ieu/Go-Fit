@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dropdown } from "primereact/dropdown";
 
-export default function DropdownComponent({ data }) {
-  const [selectedCity, setSelectedCity] = useState(null);
+export default function DropdownComponent({
+  data,
+  placeholder,
+  selectedValue,
+  onValueChange,
+}) {
   const content = data.map((item) => {
     return { name: item };
   });
-
+  const handleChange = (e) => {
+    onValueChange(e.value);
+  };
   return (
     <div className="card_dropdown">
       <Dropdown
-        value={selectedCity}
-        onChange={(e) => setSelectedCity(e.value)}
+        value={selectedValue}
+        onChange={handleChange}
         options={content}
         optionLabel="name"
-        placeholder="Select"
+        placeholder={placeholder}
         className="w-full md:w-14rem"
       />
     </div>

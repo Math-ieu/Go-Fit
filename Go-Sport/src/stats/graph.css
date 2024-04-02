@@ -29,3 +29,23 @@
 .card_vb {
   width: 500px;
 }
+
+.graph {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inscrit_homme_femme {
+}
+
+.incsrit_par_periode_intervale {
+}
+
+.inscrit_par_abonnement {
+}
+
+.entrainement {
+}
+.input {
+  display: flex;
+  flex-direction: row;
+}

@@ -261,6 +261,116 @@ app.get('/paiements/:id', async (req, res, next) => {
   }
 });
 
+
+app.get('/stats/membresinscrithomme', async (req, res) => {
+  const { intervale, periode } = req.body;
+  try {
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'M' AND registrationdate >= CURRENT_DATE - INTERVAL '2 year';`)
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+app.get('/stats/membresinscritfemme', async (req, res) => {
+  const { intervale, periode } = req.body;
+  try {
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'F' AND registrationdate >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`)
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+app.get('/stats/membrespartypeabonnement', async (req, res) => {
+  const { id_abonnement } = req.body;
+  try {
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE id_abonnement = ${id_abonnement};`);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+
+app.get('/stats/membreparentrainmentferme', async (req, res) => {
+  const { intervale, periode } = req.body;
+  try {
+    const result = await client.query(`SELECT COUNT(a.id_client) FROM affecter_client_ferme a, entrainement_ferme e WHERE a.id_entrainement_ferme = e.id_entrainement_ferme and e.date_session >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+
+app.get('/stats/membreparentrainmentouvert', async (req, res) => {
+  const { intervale, periode } = req.body;
+  try {
+    const result = await client.query(`SELECT COUNT(a.id_client) FROM affecter_client_ouvert a, entrainement_ouvert e WHERE a.id_entrainement_ouvert = e.id_entrainement_ouvert and e.date_session >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+app.get('/stats/membresinscritparmoisanneehomme', async (req, res) => {
+  const { annee } = req.body;
+  try {
+    const result = await client.query(`SELECT 
+    mois.mois AS mois,
+    COALESCE(COUNT(client.id), 0) AS nombre_de_clients_inscrits
+FROM 
+    (
+        SELECT generate_series(1, 12) AS mois
+    ) AS mois
+LEFT JOIN 
+    client ON EXTRACT(MONTH FROM client.registrationdate) = mois.mois
+WHERE 
+    sex = 'M' AND (EXTRACT(YEAR FROM client.registrationdate) = '${annee}' OR client.registrationdate IS NULL)
+GROUP BY 
+    mois
+ORDER BY 
+    mois;
+`);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+app.get('/stats/membresinscritparmoisanneefemme', async (req, res) => {
+  const { annee } = req.body;
+  try {
+    const result = await client.query(`SELECT 
+    mois.mois AS mois,
+    COALESCE(COUNT(client.id), 0) AS nombre_de_clients_inscrits
+FROM 
+    (
+        SELECT generate_series(1, 12) AS mois
+    ) AS mois
+LEFT JOIN 
+    client ON EXTRACT(MONTH FROM client.registrationdate) = mois.mois
+WHERE 
+    sex = 'F' AND EXTRACT(YEAR FROM client.registrationdate) = '${annee}' OR client.registrationdate IS NULL
+GROUP BY 
+    mois
+ORDER BY 
+    mois;`);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error processing', error);
+    res.status(500).send('An error has accurred');
+  }
+});
+
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Une erreur interne est survenue' });
@@ -269,3 +379,4 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+

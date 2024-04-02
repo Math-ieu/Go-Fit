@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BsCursor } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -139,56 +140,64 @@ function Inscription({  }) {
   };
   
     return (
-      <div>
-        <h1 style={{ color: 'white' }}>INSCRIPTION</h1>
-        <form onSubmit={handleSubmit1}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>
-              <input type="text" placeholder="Prénom" value={firstName} onChange={handleFirstNameChange} />
-              <input type="text" placeholder="Nom" value={lastName} onChange={handleLastNameChange} />
-              <input type="text" placeholder="Adresse" value={address} onChange={handleAddressChange} />
-              <input type="text" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
-              {!isValidEmail && email !== '' && <p style={{ color: 'orange' }}>Ceci n'est pas une adresse mail valide</p>}
-              <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
-              {!isValidPassword && password !== '' && <p style={{ color: 'orange' }}>Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial</p>}
-              <input type="password" placeholder="Confirmer le mot de passe" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-              {password !== confirmPassword && confirmPassword !== '' && <p style={{ color: 'orange' }}>Les mots de passe ne correspondent pas</p>}
-              <select value={sex} onChange={handleSexChange}>
-                <option value="">Sélectionnez votre sexe</option>
-                <option value="M">Monsieur</option>
-                <option value="F">Madame</option>
-              </select>
-              <input type="number" placeholder="Poids" value={weight} onChange={handleWeightChange} />
-              <input type="number" placeholder="Taille" value={height} onChange={handleHeightChange} />
+      <div id='inscription'>
+        <div className='inscription'>
+          <h1>INSCRIPTION</h1>
+          <hr />
+          <form onSubmit={handleSubmit1} className='insc-form'>
+
+            <div className='infos'>
+
+              <div className='perso-info'>
+                <input type="text" placeholder="Prénom" value={firstName} onChange={handleFirstNameChange} />
+                <input type="text" placeholder="Nom" value={lastName} onChange={handleLastNameChange} />
+                <input type="text" placeholder="Adresse" value={address} onChange={handleAddressChange} />
+                <input type="text" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
+                {!isValidEmail && email !== '' && <p style={{ color: 'orange' }}>Ceci n'est pas une adresse mail valide</p>}
+                <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
+                {!isValidPassword && password !== '' && <p style={{ color: 'orange' }}>Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial</p>}
+                <input type="password" placeholder="Confirmer le mot de passe" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+                {password !== confirmPassword && confirmPassword !== '' && <p style={{ color: 'orange' }}>Les mots de passe ne correspondent pas</p>}
+                <select value={sex} onChange={handleSexChange}>
+                  <option value="">Sélectionnez votre sexe</option>
+                  <option value="M">Monsieur</option>
+                  <option value="F">Madame</option>
+                </select>
+                <input type="number" placeholder="Poids" value={weight} onChange={handleWeightChange} />
+                <input type="number" placeholder="Taille" value={height} onChange={handleHeightChange} />
+              </div>
+
+              <div className='other-info'> 
+                <textarea placeholder="Motivation" value={motivation} onChange={handleMotivationChange} />
+                <select value={goal} onChange={handleGoalChange}>
+                  <option value="">Sélectionnez votre objectif</option>
+                  <option value="functional_training">Entraînement Fonctionnel pour une Meilleure Performance Quotidienne</option>
+                  <option value="flexibility">Amélioration de la Flexibilité et de la Mobilité</option>
+                  <option value="endurance">Amélioration de l'Endurance</option>
+                  <option value="strength">Amélioration de la Force</option>
+                  <option value="weight_loss">Perte de Poids</option>
+                  <option value="muscle_gain">Prise de Masse Musculaire</option>
+                </select>
+                <select value={trainingType} onChange={handleTrainingTypeChange}>
+                  <option value="">Sélectionnez votre type d'entraînement</option>
+                  <option value="global">Globale</option>
+                  <option value="cardio">Cardio</option>
+                  <option value="yoga">Yoga</option>
+                  <option value="speed_agility">Entraînement de Vitesse et Agilité</option>
+                  <option value="balance_coordination">Entraînement en Équilibre et Coordination</option>
+                  <option value="boxing_kickboxing">Entraînement de Boxe ou de Kickboxing</option>
+                </select>
+                <input type="tel" pattern="[0-9]{10}" placeholder="Téléphone" value={phone} onChange={handlePhoneChange} />
+                <input type="date" placeholder="Date de naissance" value={birthDate} onChange={handleBirthDateChange} />
+                <input type="file" accept=".png, .jpg, .jpeg" onChange={(event) => setPhoto(event.target.files[0])} />
+              </div>
+
             </div>
-            <div>
-              <textarea placeholder="Motivation" value={motivation} onChange={handleMotivationChange} />
-              <select value={goal} onChange={handleGoalChange}>
-                <option value="">Sélectionnez votre objectif</option>
-                <option value="functional_training">Entraînement Fonctionnel pour une Meilleure Performance Quotidienne</option>
-                <option value="flexibility">Amélioration de la Flexibilité et de la Mobilité</option>
-                <option value="endurance">Amélioration de l'Endurance</option>
-                <option value="strength">Amélioration de la Force</option>
-                <option value="weight_loss">Perte de Poids</option>
-                <option value="muscle_gain">Prise de Masse Musculaire</option>
-              </select>
-              <select value={trainingType} onChange={handleTrainingTypeChange}>
-                <option value="">Sélectionnez votre type d'entraînement</option>
-                <option value="global">Globale</option>
-                <option value="cardio">Cardio</option>
-                <option value="yoga">Yoga</option>
-                <option value="speed_agility">Entraînement de Vitesse et Agilité</option>
-                <option value="balance_coordination">Entraînement en Équilibre et Coordination</option>
-                <option value="boxing_kickboxing">Entraînement de Boxe ou de Kickboxing</option>
-              </select>
-              <input type="tel" pattern="[0-9]{10}" placeholder="Téléphone" value={phone} onChange={handlePhoneChange} />
-              <input type="date" placeholder="Date de naissance" value={birthDate} onChange={handleBirthDateChange} />
-              <input type="file" accept=".png, .jpg, .jpeg" onChange={(event) => setPhoto(event.target.files[0])} />
-            </div>
-          </div>
-          <button type="submit" disabled={!isValidEmail || !isValidPassword || password !== confirmPassword} style={{ backgroundColor: isValidEmail && isValidPassword && password === confirmPassword ? 'orange' : 'grey' }}>S'inscrire</button>
-        </form>
-        <p style={{ color: 'white' }}>Vous avez déjà un compte ? <span style={{ color: 'orange' }} onClick={() => navigate('/Connexion')}>Connectez-vous</span></p>
+            <button type="submit" disabled={!isValidEmail || !isValidPassword || password !== confirmPassword} style={{ backgroundColor: isValidEmail && isValidPassword && password === confirmPassword ? 'orange' : 'grey' }}>S'inscrire</button>
+          </form>
+          <hr />
+          <p style={{color:'blue'}}>Vous avez déjà un compte ? <span style={{ color: 'orange', cursor:'pointer'}} onClick={() => navigate('/Connexion')}>Connectez-vous</span></p>
+        </div>
       </div>
     );
   }

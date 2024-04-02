@@ -1,0 +1,313 @@
+.planning-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.planning-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.planning-table th {
+  background-color: white;
+}
+
+
+.planning-table th{
+  padding: 15px;
+  border: 1px solid #BEE3F8;
+}
+
+.planning-table td {
+  padding: 15px;
+}
+.planning-table tr:nth-child(even) { background: #BEE3F8; }
+
+.date-header,
+.time-slot-header {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #BEE3F8;
+}
+
+.date-row,
+.time-slot-cell {
+  padding: 5px;
+  border: 1px solid #BEE3F8;
+}
+
+.date-cell {
+  text-align: left;
+}
+
+
+.time-slot-cell.occupied {
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.add-planning-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0; 
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.add-planning-button:hover {
+  background-color: #3e8e41; 
+}
+
+/* *********** connexion **************** */
+#connexion{
+  display: flex;
+  justify-content: center;
+}
+
+.connexion{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: min-content;
+  padding: 20px;
+  row-gap: 5px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.connexion h1{
+  font-weight: bolder;
+}
+
+.con-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 20px;
+}
+
+.con-form input{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline-color: blue;
+}
+
+.con-form button{
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+/* ********************** Inscription ***************** */
+#inscription{
+  display: flex;
+  text-align: center;
+  place-content: center;
+}
+
+.inscription{
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  width: min-content;
+  background-color: white;
+  padding: 20px;
+  row-gap: 15px;
+}
+
+.infos{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.inscription h1{
+  font-weight: bolder;
+}
+
+.perso-info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.perso-info input,
+.perso-info select{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  outline-color: blue;
+}
+
+
+.other-info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.other-info input,
+.other-info select,
+.other-info textarea{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  outline-color: blue;
+}
+ 
+
+.insc-form button{
+  padding: 7px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+
+/* ********************** AJOUTER UN PLANING ******************* */
+#ajout-planing{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.ajout-planing-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.ajout-planing-form input,
+.ajout-planing-form select{
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline-color: blue;
+}
+
+.ajout-planing-form button{
+  background-color: #3e8e41;
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* ************************* AJOUT ABONNEMENT ************** */
+#ajout-abonnement{
+  display: flex;
+  justify-content: center;
+}
+
+.ajout-abon-form-container{
+  background-color: white;
+  border-radius: 4px;
+}
+
+.ajout-abon-form{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 15px;
+  text-align: center;
+  row-gap: 10px;
+}
+
+.ajout-abon-form input{
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  outline-color: blue;
+}
+
+.ajout-abon-form button{
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0; 
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+/*********** ******* TABLE CLIENT ************* */
+#table-client {
+  display: flex;
+  justify-content: center;
+}
+
+.tb-client{
+  display: 
+  flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  row-gap: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.tb-client input{
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: auto;
+  border-radius: 4px;
+  outline-color: blue;
+}
+
+.client-table{
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.client-table th{
+  padding: 15px;
+  border: 1px solid #BEE3F8;
+  background-color: #BEE3F8;
+}
+
+.client-table td {
+  padding: 15px;
+  border: 1px solid #BEE3F8;
+}
+.client-table tr:nth-child(even) { background: #BEE3F8; }
+
+.client-table button{
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+#add-btn{
+  background-color: blueviolet;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}

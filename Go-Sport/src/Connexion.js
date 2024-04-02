@@ -52,15 +52,18 @@ function Connexion() {
   };
 
   return (
-    <div>
-      <h1 style={{ color: 'white' }}>CONNEXION</h1>
-      <form onSubmit={handleFormSubmit}>
-        <input type="text" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
-        {!isValidEmail && email !== '' && <p style={{ color: 'orange' }}>Ceci n'est pas une adresse mail valide</p>}
-        <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
-        <button type="submit" disabled={!isValidEmail || password === ''} style={{ backgroundColor: isValidEmail && password !== '' ? 'orange' : 'grey' }}>Se connecter</button>
-      </form>
-      <p style={{ color: 'white' }}>Vous êtes nouveau ? <span style={{ color: 'orange' }} onClick={() => navigate('/Inscription')}>Inscrivez-vous</span></p>
+    <div id='connexion'>
+      
+      <div className='connexion'>
+        <h1>CONNEXION</h1>
+        <form onSubmit={handleFormSubmit} className='con-form'>
+          <input type="text" placeholder="Adresse mail" value={email} onChange={handleEmailChange} />
+          {!isValidEmail && email !== '' && <p style={{ color: 'orange' }}>Ceci n'est pas une adresse mail valide</p>}
+          <input type="password" placeholder="Mot de passe" value={password} onChange={handlePasswordChange} />
+          <button type="submit" disabled={!isValidEmail || password === ''} style={{ backgroundColor: isValidEmail && password !== '' ? 'orange' : 'grey' }}>Se connecter</button>
+        </form>
+        <p style={{ color: 'white', cursor:'pointer' }}>Vous êtes nouveau ? <span style={{ color: 'orange' }} onClick={() => navigate('/Inscription')}>Inscrivez-vous</span></p>
+      </div>
     </div>
   );
 }

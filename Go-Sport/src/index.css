@@ -69,3 +69,6 @@
     @apply flex -space-x-4;
   }
 }
+*{
+  font-family: SF Pro Display;
+}

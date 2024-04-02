@@ -109,34 +109,34 @@ function Inscription({ setPage }) {
     formData.append('photo', photo);
 
     const response = await fetch('http://localhost:3001/inscription', {
-        method: 'POST',
-        body: formData
-      });
+      method: 'POST',
+      body: formData
+    });
     const data = await response.json();
     if (response.ok) {
-        alert("inscription réussite");
-        setFirstName('');
-        setLastName('');
-        setAddress('');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-        setIsValidEmail(false);
-        setIsValidPassword(false);
-        setSex('');
-        setWeight('');
-        setHeight('');
-        setMotivation('');
-        setGoal('');
-        setTrainingType('');
-        setPhone('');
-        setBirthDate('');
-        setRegistrationDate(new Date().toISOString().substring(0, 10));
+      alert("inscription réussite");
+      setFirstName('');
+      setLastName('');
+      setAddress('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+      setIsValidEmail(false);
+      setIsValidPassword(false);
+      setSex('');
+      setWeight('');
+      setHeight('');
+      setMotivation('');
+      setGoal('');
+      setTrainingType('');
+      setPhone('');
+      setBirthDate('');
+      setRegistrationDate(new Date().toISOString().substring(0, 10));
     }
-    else{
+    else {
       alert('une erreur sest produite ');
     }
-};
+  };
 
   return (
     <div>
@@ -194,7 +194,7 @@ function Inscription({ setPage }) {
 }
 
 // Fonction pour la page de connexion
-function Connexion({ setPage , setUser}) {
+function Connexion({ setPage, setUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -213,20 +213,20 @@ function Connexion({ setPage , setUser}) {
     event.preventDefault();
 
     const response = await fetch('http://localhost:3001/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
     });
 
     if (response.ok) {
-        const { table, user } = await response.json();
-        setPage('Home' + table.charAt(0).toUpperCase() + table.slice(1));
-        setUser(user);
+      const { table, user } = await response.json();
+      setPage('Home' + table.charAt(0).toUpperCase() + table.slice(1));
+      setUser(user);
     } else {
-        const error = await response.json();
-        window.alert('Adresse email ou mot de passe incorrect');
+      const error = await response.json();
+      window.alert('Adresse email ou mot de passe incorrect');
     }
   };
 

@@ -15,37 +15,60 @@
 /* Styles du graphique */
 .card_dropdown {
   width: 100%;
-  max-width: 60px; /* Ajustez la largeur maximale selon vos besoins */
+  max-width: 100px; /* Ajustez la largeur maximale selon vos besoins */
   margin: 0 auto;
 }
 
 /* Styles des étiquettes */
 .card_pie {
   color: var(--text-color);
-  width: 500px;
+  width: 70%; /* Réduire la largeur à moitié */
 }
 
 /* Styles des couleurs de fond au survol */
 .card_vb {
-  width: 500px;
+  width: 100%; /* Utilisation de toute la largeur disponible */
 }
 
 .graph {
   display: flex;
   flex-wrap: wrap;
-}
-.inscrit_homme_femme {
-}
-
-.incsrit_par_periode_intervale {
+  justify-content: space-around; /* Pour aligner les éléments au centre */
+  margin: 50px auto; /* Marge autour du contenu pour le centrer */
 }
 
-.inscrit_par_abonnement {
+.graph-container {
+  width: 45%; /* Utilisation de 45% de la largeur de l'écran */
+  margin: 10px;
+  padding: 20px;
 }
 
+.graph-title {
+  text-align: center;
+  margin-bottom: 10px;
+  opacity: 100%;
+  font-size: x-large;
+}
+
+.inscrit_homme_femme,
+.incsrit_par_periode_intervale,
+.inscrit_par_abonnement,
 .entrainement {
+  border: 2px solid var(--surface-border); /* Ajout d'un cadre autour du conteneur */
+  border-radius: 10px; /* Coins arrondis */
+  width: 100%; /* Utilisation de toute la largeur disponible */
+  margin-bottom: 20px; /* Espacement entre les graphes */
+  justify-content: center;
 }
+
 .input {
   display: flex;
   flex-direction: row;
+  justify-content: space-around; /* Pour espacer également les éléments à l'intérieur */
+}
+
+@media (max-width: 768px) {
+  .graph-container {
+    width: 90%; /* Utilisation de 90% de la largeur sur les petits écrans */
+  }
 }

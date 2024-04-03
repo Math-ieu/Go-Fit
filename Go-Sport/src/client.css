@@ -73,7 +73,9 @@
 /* *********** connexion **************** */
 #connexion{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #090c0d;
 }
 
 .connexion{
@@ -84,8 +86,22 @@
   padding: 20px;
   row-gap: 5px;
   text-align: center;
-  border-radius: 4px;
+  border-radius: 3px;
+  height: fit-content;
 }
+
+
+.img-con{
+  height: 600px;
+  width: 50%;
+}
+
+
+.img-con img{
+  height: 100%;
+  width: 100%;
+}
+
 
 .connexion h1{
   font-weight: bolder;
@@ -102,6 +118,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   outline-color: blue;
+  padding: 5px;
 }
 
 .con-form button{
@@ -115,8 +132,12 @@
 /* ********************** Inscription ***************** */
 #inscription{
   display: flex;
+  justify-content: space-around;
+  background-color: #090c0d;
   text-align: center;
-  place-content: center;
+  height: 100%;
+  padding: 10px;
+  align-items: center;
 }
 
 .inscription{
@@ -124,10 +145,20 @@
   flex-direction: column;
   place-content: center;
   width: min-content;
+  height: 100%;
   background-color: white;
-  padding: 20px;
+  padding: 5px 20px;
   row-gap: 15px;
+  margin-left: 20px;
+  align-self: center;
+  border-radius: 3px;
 }
+
+.img img{
+  height: 100%;
+  border-radius: 3px;
+}
+
 
 .infos{
   display: flex;
@@ -311,3 +342,6 @@
   border: none;
   border-radius: 5px;
 }
+
+
+/* ********************** INCRIPTION CONNEXION *************** */

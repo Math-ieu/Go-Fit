@@ -139,7 +139,7 @@ function AjouterClient() {
     <div id="inscription">
       <div className="inscription">
         <h1>INSCRIPTION</h1>
-        <form onSubmit={handleSubmit1}>
+        <form onSubmit={handleSubmit1} className="insc-form">
           <div className="infos">
             <div className="perso-info">
               <input
@@ -280,7 +280,7 @@ function AjouterClient() {
                   : "grey",
             }}
           >
-            Ajouter
+            Ajouter le client
           </button>
         </form>
       </div>

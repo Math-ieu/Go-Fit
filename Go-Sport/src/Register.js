@@ -144,7 +144,7 @@ function Inscription({}) {
     <div id="inscription">
       
       <div className="inscription">
-        <h1>INSCRIPTION</h1>
+        <h1>Inscription</h1>
         <hr />
         <form onSubmit={handleSubmit1} className="insc-form">
           <div className="infos">
@@ -262,7 +262,11 @@ function Inscription({}) {
                 value={phone}
                 onChange={handlePhoneChange}
               />
+              <label htmlFor="bday"> 
+                Date de Naissance 
+              </label>
               <input
+                id="bday"
                 type="date"
                 placeholder="Date de naissance"
                 value={birthDate}

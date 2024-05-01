@@ -24,31 +24,33 @@ function EntraineurTable() {
     );
 
     return (
-        <div>
-            <input type="text" placeholder="Rechercher par nom" onChange={e => setSearch(e.target.value)} />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredEntraineurs.map(entraineur => (
-                        <tr key={entraineur.id}>
-                            <td>{entraineur.nom}</td>
-                            <td>{entraineur.prenom}</td>
-                            <td>
-                                <button onClick={() => deleteEntraineur(entraineur.id)}>Supprimer</button>
-                            </td>
+        <div id='entraineur'>
+            <div className='entraineur-table-cont'>
+                <input type="text" placeholder="Rechercher par nom" onChange={e => setSearch(e.target.value)} />
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-            <Link to="/AjoutEntraineur">
-                <button>Ajouter un entraîneur</button>
-            </Link>
+                    </thead>
+                    <tbody>
+                        {filteredEntraineurs.map(entraineur => (
+                            <tr key={entraineur.id}>
+                                <td>{entraineur.nom}</td>
+                                <td>{entraineur.prenom}</td>
+                                <td>
+                                    <button onClick={() => deleteEntraineur(entraineur.id)}>Supprimer</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <Link to="/AjoutEntraineur">
+                    <button id='aj-entraineur'>Ajouter un entraîneur</button>
+                </Link>
+            </div>
         </div>
     );
 }

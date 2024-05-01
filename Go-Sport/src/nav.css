@@ -1,0 +1,45 @@
+#nav{
+    display: flex;
+    place-content: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    column-gap: 250px;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(225, 149, 7);
+    justify-content: center;
+    color: white;
+}
+
+.profile__image{
+    height: 60px;
+}
+
+.profile__image img{
+    width: 60px;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav__links{
+    display: flex;
+    column-gap: 40px;
+}
+
+.gofit__logo h1{
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: larger;
+    left: 0;
+    color: white;
+}

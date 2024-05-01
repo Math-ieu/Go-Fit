@@ -191,8 +191,6 @@ CREATE SEQUENCE public.entrainement_ouvert_id_entrainement_ouvert_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
 ALTER TABLE public.entrainement_ouvert_id_entrainement_ouvert_seq OWNER TO postgres;
 
 --
@@ -384,7 +382,6 @@ CREATE SEQUENCE public.paiement_id_paiement_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
 
 ALTER TABLE public.paiement_id_paiement_seq OWNER TO postgres;
 
@@ -1053,7 +1050,6 @@ ALTER TABLE ONLY public.entrainement_ferme
 
 ALTER TABLE ONLY public.entrainement_ouvert
     ADD CONSTRAINT pko_entrainement PRIMARY KEY (id_entrainement_ouvert);
-
 
 --
 -- Name: registre registre_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres

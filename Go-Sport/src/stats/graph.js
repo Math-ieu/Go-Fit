@@ -13,10 +13,10 @@ import {
 import './graph.css';
 
 export default function Graph({ Component, pageProps }) {
-    const [selectedValueInscritHommeFemme, setSelectedValueInscritHommeFemme] = useState(null);
-    const [selectedValueInscritParAbonnement, setSelectedValueInscritParAbonnement] = useState(null);
-    const [selectedValueInscritParPeriode, setSelectedValueInscritParPeriode] = useState(null);
-    const [selectedValueEntrainement, setSelectedValueEntrainement] = useState(null);
+    const [selectedValueInscritHommeFemme, setSelectedValueInscritHommeFemme] = useState({ 'name': '2020' });
+    const [selectedValueInscritParAbonnement, setSelectedValueInscritParAbonnement] = useState({ 'name': 'year' });
+    const [selectedValueInscritParPeriode, setSelectedValueInscritParPeriode] = useState({ 'name': 'year' });
+    const [selectedValueEntrainement, setSelectedValueEntrainement] = useState({ 'name': 'year' });
 
     const [chosenValueInscritParPeriode, setChosenValueInscritParPeriode] = useState(2);
     const [chosenValueEntrainement, setChosenValueEntrainement] = useState(2);
@@ -32,6 +32,7 @@ export default function Graph({ Component, pageProps }) {
     };
     const handleValueChangeEntrainement = (value) => {
         setSelectedValueEntrainement(value);
+        console.log(value);
     };
 
     const handleValueChangeChosenInscritParPeriode = (value) => {
@@ -40,6 +41,7 @@ export default function Graph({ Component, pageProps }) {
 
     const handleValueChangeChosenEntrainement = (value) => {
         setChosenValueEntrainement(value);
+        console.log(value);
     };
 
 
@@ -67,15 +69,15 @@ export default function Graph({ Component, pageProps }) {
                 setStatsMembresInscritFemme(data);
             }
         };
-        const fetchDataMembresParTypeAbonnement = async () => {
-            const idAbonnement = 'votreIdAbonnement';
-            const data = await fetchStatsMembresParTypeAbonnement(idAbonnement);
-            if (data) {
-                setStatsMembresParTypeAbonnement(data);
-            }
-        };
+        // const fetchDataMembresParTypeAbonnement = async () => {
+        //     const idAbonnement = ;
+        //     const data = await fetchStatsMembresParTypeAbonnement(idAbonnement);
+        //     if (data) {
+        //         setStatsMembresParTypeAbonnement(data);
+        //     }
+        // };
         const fetchDataMembreParEntrainementFerme = async () => {
-            const intervale = selectedValueEntrainement;
+            const intervale = selectedValueEntrainement.name;
             const periode = chosenValueEntrainement;
             const data = await fetchStatsMembreParEntrainementFerme(intervale, periode);
             if (data) {
@@ -84,7 +86,7 @@ export default function Graph({ Component, pageProps }) {
         };
 
         const fetchDataMembreParEntrainementOuvert = async () => {
-            const intervale = selectedValueEntrainement;
+            const intervale = selectedValueEntrainement.name;
             const periode = chosenValueEntrainement;
             const data = await fetchStatsMembreParEntrainementOuvert(intervale, periode);
             if (data) {
@@ -93,14 +95,14 @@ export default function Graph({ Component, pageProps }) {
         };
 
         const fetchDataMembresInscritParMoisAnneeFemme = async () => {
-            const annee = selectedValueInscritHommeFemme;
+            const annee = selectedValueInscritHommeFemme.name;
             const data = await fetchStatsMembresInscritParMoisAnneeFemme(annee);
             if (data) {
                 setStatsMembreInscritParMoisAnneeFemme(data);
             }
         };
         const fetchDataMembresInscritParMoisAnneeHomme = async () => {
-            const annee = selectedValueInscritHommeFemme;
+            const annee = selectedValueInscritHommeFemme.name;
             const data = await fetchStatsMembresInscritParMoisAnneeHomme(annee);
             if (data) {
                 setStatsMembreInscritParMoisAnneeHomme(data);
@@ -108,7 +110,7 @@ export default function Graph({ Component, pageProps }) {
         };
         fetchDataMembresInscritHomme();
         fetchDataMembresInscritFemme();
-        fetchDataMembresParTypeAbonnement();
+        // fetchDataMembresParTypeAbonnement();
         fetchDataMembreParEntrainementOuvert();
         fetchDataMembreParEntrainementFerme();
         fetchDataMembresInscritParMoisAnneeHomme();

@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import './nav.css'
-import man from './assets/img/man.png'
 
-
-const Nav = () => {
+const Nav = ({links, profileImage}) => {
 
   const  [isOpen, setIsOpen] = useState(false);
 
@@ -15,14 +13,13 @@ const Nav = () => {
           </div>
 
           <div className='nav__links'>
-            <a href="#">Planning</a>
-            <a href="#">Abonnements</a>
-            <a href="#">factures</a>
-            <a href="#">Payements</a>
+            {links.map((link, index) => (
+              <a key={index} href={link.href}>{link.text}</a>
+            ))}
           </div>
 
           <div className='profile__image'>
-            <img src={man} alt="" onClick={() => setIsOpen(true)}/>
+            <img src={profileImage} alt="" onClick={() => setIsOpen(true)}/>
           </div>
         </div>
 

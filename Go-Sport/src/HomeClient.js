@@ -42,7 +42,16 @@ function HomeClient({
 
   return (
     <div id="home__cl" className="home__cl">
-      <Nav />
+        <Nav 
+    links={[
+      {href: "#", text: "Planning"},
+      {href: "#", text: "Abonnements"},
+      {href: "#", text: "factures"},
+      {href: "#", text: "Payements"}
+    ]}
+    profileImage="./assets/img/man.png"
+  />
+
       <h1 id="h1-home">Bonjour, bienvenue {user1.firstname} !</h1>
       {/*
       <table>

@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import {
     fetchStatsMembresInscritHomme, fetchStatsMembresInscritFemme, fetchStatsMembresParTypeAbonnement,
     fetchStatsMembreParEntrainementFerme, fetchStatsMembreParEntrainementOuvert, fetchStatsMembresInscritParMoisAnneeHomme, fetchStatsMembresInscritParMoisAnneeFemme,
-} from './api';
+} from './api.js';
 import './graph.css';
 
 export default function Graph({ Component, pageProps }) {
@@ -43,13 +43,13 @@ export default function Graph({ Component, pageProps }) {
     };
 
 
-    const [statsMembresInscritHomme, setStatsMembresInscritHomme] = useState(null);
-    const [statsMembresInscritFemme, setStatsMembresInscritFemme] = useState(null);
-    const [statsMembresParTypeAbonnement, setStatsMembresParTypeAbonnement] = useState(null);
-    const [statsMembreParEntrainementFerme, setStatsMembreParEntrainementFerme] = useState(null);
-    const [statsMembreParEntrainementOuvert, setStatsMembreParEntrainementOuvert] = useState(null);
-    const [statsMembreInscritParMoisAnneeHomme, setStatsMembreInscritParMoisAnneeHomme] = useState(null);
-    const [statsMembreInscritParMoisAnneeFemme, setStatsMembreInscritParMoisAnneeFemme] = useState(null);
+    const [statsMembresInscritHomme, setStatsMembresInscritHomme] = useState([]);
+    const [statsMembresInscritFemme, setStatsMembresInscritFemme] = useState([]);
+    const [statsMembresParTypeAbonnement, setStatsMembresParTypeAbonnement] = useState([{}]);
+    const [statsMembreParEntrainementFerme, setStatsMembreParEntrainementFerme] = useState([{ "count": 2 }]);
+    const [statsMembreParEntrainementOuvert, setStatsMembreParEntrainementOuvert] = useState([{ "count": 9 }]);
+    const [statsMembreInscritParMoisAnneeHomme, setStatsMembreInscritParMoisAnneeHomme] = useState([]);
+    const [statsMembreInscritParMoisAnneeFemme, setStatsMembreInscritParMoisAnneeFemme] = useState([]);
     useEffect(() => {
         const fetchDataMembresInscritHomme = async () => {
             const intervale = chosenValueInscritParPeriode;
@@ -118,29 +118,38 @@ export default function Graph({ Component, pageProps }) {
     return (
         <PrimeReactProvider>
             <div className='graph'>
-                <div className='inscrit_homme_femme'>
-                    <DropdownComponent data={["2021", "2022", '2023', '2024']} placeholder={"annee"} selectedValue={selectedValueInscritHommeFemme} onValueChange={handleValueChangeInscritHommeFemme} />
-                    <VerticalBarComponent data={{ "homme": [12, 23, 45, 56, 67, 45, 67, 21, 56, 70, 7, 20], "femme": [23, 45, 67, 87, 99, 34, 56, 78, 9, 40, 23, 11] }} />
-                </div>
-                <div className='incsrit_par_periode_intervale'>
-                    <div className='input'>
-                        <InputNumberComponent selectedValue={chosenValueInscritParPeriode} onValueChange={handleValueChangeChosenInscritParPeriode} />
-                        <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueInscritParPeriode} onValueChange={handleValueChangeInscritParPeriode} />
+                <div className='graph-container'>
+                    <div className='inscrit_homme_femme'>
+                        <div className='graph-title'>Nombre total d'inscrit</div>
+                        <DropdownComponent data={["2021", "2022", '2023', '2024']} placeholder={"annee"} selectedValue={selectedValueInscritHommeFemme} onValueChange={handleValueChangeInscritHommeFemme} />
+                        <VerticalBarComponent data={{ "homme": [12, 23, 45, 56, 67, 45, 67, 21, 56, 70, 7, 20], "femme": [23, 45, 67, 87, 99, 34, 56, 78, 9, 40, 23, 11] }} />
                     </div>
-                    <PieChartComponent data={{ "labels": ["A", "B", "c"], "content": [300, 400, 500] }} />
-                </div>
-                <div className='inscrit_par_abonnement'>
-                    <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueInscritParAbonnement} onValueChange={handleValueChangeInscritParAbonnement} />
-                    <PieChartComponent data={{ "labels": ["A", "B", "c"], "content": [300, 400, 500] }} />
-                </div>
-                <div className='entrainement'>
-                    <div className='input'>
-                        <InputNumberComponent selectedValue={chosenValueEntrainement} onValueChange={handleValueChangeChosenEntrainement} />
-                        <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueEntrainement} onValueChange={handleValueChangeEntrainement} />
+                    <div className='incsrit_par_periode_intervale'>
+                        <div className='graph-title'>Nombre d'inscrit par intervalle de temps</div>
+                        <div className='input'>
+                            <InputNumberComponent selectedValue={chosenValueInscritParPeriode} onValueChange={handleValueChangeChosenInscritParPeriode} />
+                            <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueInscritParPeriode} onValueChange={handleValueChangeInscritParPeriode} />
+                        </div>
+                        <PieChartComponent data={{ "labels": ["Homme", "Femme"], "content": [300, 400] }} />
                     </div>
-                    <PieChartComponent data={{ "labels": ["Entrainement Fermé", "Entrainement Ouvert"], "content": [20, 89] }} />
+                </div>
+
+                <div className='graph-container'>
+                    <div className='inscrit_par_abonnement'>
+                        <div className='graph-title'>Nombre de personnes par abonnement</div>
+                        <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueInscritParAbonnement} onValueChange={handleValueChangeInscritParAbonnement} />
+                        <PieChartComponent data={{ "labels": ["Premium", "Basic", "Elite"], "content": [300, 400, 500] }} />
+                    </div>
+                    <div className='entrainement'>
+                        <div className='graph-title'>Rapport entre les sessions fermées et ouvertes</div>
+                        <div className='input'>
+                            <InputNumberComponent selectedValue={chosenValueEntrainement} onValueChange={handleValueChangeChosenEntrainement} />
+                            <DropdownComponent data={["year", "month", 'week', 'day']} placeholder={"Période"} selectedValue={selectedValueEntrainement} onValueChange={handleValueChangeEntrainement} />
+                        </div>
+                        <PieChartComponent data={{ "labels": ["Entrainement Fermé", "Entrainement Ouvert"], "content": [statsMembreParEntrainementFerme[0].count, statsMembreParEntrainementOuvert[0].count] }} />
+                    </div>
                 </div>
             </div>
-        </PrimeReactProvider>
+        </PrimeReactProvider >
     );
 }

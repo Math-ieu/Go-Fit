@@ -13,7 +13,12 @@
     "aos": "^2.3.4",
     "chart.js": "^4.4.2",
     "framer-motion": "^11.0.3",
+<<<<<<< HEAD
     "primereact": "^10.6.2",
+=======
+    "node-fetch": "^3.3.2",
+    "primereact": "^10.6.0",
+>>>>>>> 277e54857c4a0ec69b682ad106da2a258118cb40
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",

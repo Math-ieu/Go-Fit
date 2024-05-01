@@ -262,10 +262,10 @@ app.get('/paiements/:id', async (req, res, next) => {
 });
 
 
-app.get('/stats/membresinscrithomme', async (req, res) => {
+app.post('/stats/membresinscritfemme', async (req, res) => {
   const { intervale, periode } = req.body;
   try {
-    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'M' AND registrationdate >= CURRENT_DATE - INTERVAL '2 year';`)
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'F' AND registrationdate >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
     res.json(result.rows);
   } catch (error) {
     console.error('Error processing', error);
@@ -273,10 +273,11 @@ app.get('/stats/membresinscrithomme', async (req, res) => {
   }
 });
 
-app.get('/stats/membresinscritfemme', async (req, res) => {
+
+app.post('/stats/membresinscrithomme', async (req, res) => {
   const { intervale, periode } = req.body;
   try {
-    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'F' AND registrationdate >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`)
+    const result = await client.query(`SELECT COUNT(*) FROM client WHERE sex = 'M' AND registrationdate >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
     res.json(result.rows);
   } catch (error) {
     console.error('Error processing', error);
@@ -284,7 +285,7 @@ app.get('/stats/membresinscritfemme', async (req, res) => {
   }
 });
 
-app.get('/stats/membrespartypeabonnement', async (req, res) => {
+app.post('/stats/membrespartypeabonnement', async (req, res) => {
   const { id_abonnement } = req.body;
   try {
     const result = await client.query(`SELECT COUNT(*) FROM client WHERE id_abonnement = ${id_abonnement};`);
@@ -296,7 +297,7 @@ app.get('/stats/membrespartypeabonnement', async (req, res) => {
 });
 
 
-app.get('/stats/membreparentrainmentferme', async (req, res) => {
+app.post('/stats/membreparentrainementferme', async (req, res) => {
   const { intervale, periode } = req.body;
   try {
     const result = await client.query(`SELECT COUNT(a.id_client) FROM affecter_client_ferme a, entrainement_ferme e WHERE a.id_entrainement_ferme = e.id_entrainement_ferme and e.date_session >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
@@ -308,7 +309,7 @@ app.get('/stats/membreparentrainmentferme', async (req, res) => {
 });
 
 
-app.get('/stats/membreparentrainmentouvert', async (req, res) => {
+app.post('/stats/membreparentrainementouvert', async (req, res) => {
   const { intervale, periode } = req.body;
   try {
     const result = await client.query(`SELECT COUNT(a.id_client) FROM affecter_client_ouvert a, entrainement_ouvert e WHERE a.id_entrainement_ouvert = e.id_entrainement_ouvert and e.date_session >= CURRENT_DATE - INTERVAL '${intervale} ${periode}';`);
@@ -319,7 +320,7 @@ app.get('/stats/membreparentrainmentouvert', async (req, res) => {
   }
 });
 
-app.get('/stats/membresinscritparmoisanneehomme', async (req, res) => {
+app.post('/stats/membresinscritparmoisanneehomme', async (req, res) => {
   const { annee } = req.body;
   try {
     const result = await client.query(`SELECT 
@@ -345,7 +346,7 @@ ORDER BY
   }
 });
 
-app.get('/stats/membresinscritparmoisanneefemme', async (req, res) => {
+app.post('/stats/membresinscritparmoisanneefemme', async (req, res) => {
   const { annee } = req.body;
   try {
     const result = await client.query(`SELECT 

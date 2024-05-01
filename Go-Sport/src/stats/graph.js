@@ -69,13 +69,13 @@ export default function Graph({ Component, pageProps }) {
                 setStatsMembresInscritFemme(data);
             }
         };
-        // const fetchDataMembresParTypeAbonnement = async () => {
-        //     const idAbonnement = ;
-        //     const data = await fetchStatsMembresParTypeAbonnement(idAbonnement);
-        //     if (data) {
-        //         setStatsMembresParTypeAbonnement(data);
-        //     }
-        // };
+        const fetchDataMembresParTypeAbonnement = async () => {
+            const idAbonnement = 1;
+            const data = await fetchStatsMembresParTypeAbonnement(idAbonnement);
+            if (data) {
+                setStatsMembresParTypeAbonnement(data);
+            }
+        };
         const fetchDataMembreParEntrainementFerme = async () => {
             const intervale = selectedValueEntrainement.name;
             const periode = chosenValueEntrainement;

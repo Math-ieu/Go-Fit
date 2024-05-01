@@ -1,0 +1,50 @@
+.homePage {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    color: black;
+    text-align: center;
+}
+
+.home-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+  
+  .homePage img {
+    height: auto;
+    width: 50%;
+  }
+  
+.home-content h1{
+    color: black;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.home-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: fit-content;
+    padding: 50px;
+    border-radius: 4px;
+    row-gap:  20px;
+}
+
+.home-content button{
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.home-content p{
+    color: #E19507;
+    cursor: pointer;
+}

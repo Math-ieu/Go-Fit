@@ -29,9 +29,9 @@ function FactureClient({ user }) {
     return <div>Erreur : {error}</div>;
   } else {
     return (
-      <div>
-        <h1>Mes factures</h1>
-        <table>
+      <div className='table-container' id='facture'>
+        <h1>MES FACTURES</h1>
+        <table className='table'>
         <tbody>
           <tr>
             <th>Nom de la facture</th>
@@ -46,9 +46,9 @@ function FactureClient({ user }) {
               <td>{facture.date_limite_facture}</td>
               <td>
               {facture.etat_facture === 'P' ? 'Payé' :
-                <button onClick={() => navigate('/PayerFacture', { state: { facture: facture , client: user } })}>
+                <span onClick={() => navigate('/PayerFacture', { state: { facture: facture , client: user } })} style={{cursor: 'pointeur'}}>
                   Impayé
-                </button>
+                </span>
               }
               </td>
             </tr>

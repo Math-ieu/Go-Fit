@@ -16,11 +16,13 @@ function AjoutEquipment() {
     };
 
     return (
-        <div>
-            <input type="text" placeholder="Nom Type Équipement" onChange={e => setNomTypeEquipment(e.target.value)} />
-            <input type="text" placeholder="État Équipement" onChange={e => setEtatEquipment(e.target.value)} />
-            <input type="date" placeholder="Date Dernière Maintenance" onChange={e => setDateDerniereMaintenance(e.target.value)} />
-            <button onClick={() => addEquipment()}>Ajouter</button>
+        <div id='ajout-equip'>
+            <div className='aj-equip'>
+                <input type="text" placeholder="Nom Type Équipement" onChange={e => setNomTypeEquipment(e.target.value)} />
+                <input type="text" placeholder="État Équipement" onChange={e => setEtatEquipment(e.target.value)} />
+                <input type="date" placeholder="Date Dernière Maintenance" onChange={e => setDateDerniereMaintenance(e.target.value)} />
+                <button id="add-btn" onClick={() => addEquipment()}>Ajouter</button>
+            </div>
         </div>
     );
 }

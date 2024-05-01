@@ -13,14 +13,11 @@
   margin-bottom: 20px;
 }
 
-.planning-table th {
-  background-color: white;
-}
-
 
 .planning-table th{
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #BEE3F8;
+  background-color: white;
 }
 
 .planning-table td {
@@ -71,52 +68,73 @@
 }
 
 /* *********** connexion **************** */
-#connexion{
-  display: flex;
-  justify-content: center;
-}
-
 .connexion{
   display: flex;
   flex-direction: column;
-  background-color: white;
-  width: min-content;
-  padding: 20px;
-  row-gap: 5px;
-  text-align: center;
+  background: white;
+  height: fit-content;
+  place-self: center;
+  margin: auto;
+  padding: 15px;
   border-radius: 4px;
+  text-align: center;
+  row-gap: 15px;
+  width: 40%;
 }
-
 .connexion h1{
-  font-weight: bolder;
+  color: black;
+  font-weight: bold;
 }
 
 .con-form{
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin-top: 20px;
 }
 
 .con-form input{
-  border: 1px solid #ccc;
+  border: 1px solid #474141;
   border-radius: 4px;
+  padding: 5px;
   outline-color: blue;
 }
 
 .con-form button{
+  padding: 7px;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 7px;
-  cursor: pointer;
 }
+
+.con__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+.img-con{
+  height: auto;
+  overflow: hidden;
+  margin: 0;
+  width: 50%;
+}
+.img-con img{
+  width: 100%;
+}
+
 
 /* ********************** Inscription ***************** */
 #inscription{
   display: flex;
+  justify-content: space-around;
+  background-color: #090c0d;
   text-align: center;
-  place-content: center;
+  height: 100%;
+  padding: 10px;
+  align-items: center;
 }
 
 .inscription{
@@ -124,10 +142,20 @@
   flex-direction: column;
   place-content: center;
   width: min-content;
+  height: 100%;
   background-color: white;
-  padding: 20px;
+  padding: 5px 20px;
   row-gap: 15px;
+  margin-left: 20px;
+  align-self: center;
+  border-radius: 3px;
 }
+
+.img img{
+  height: 100%;
+  border-radius: 3px;
+}
+
 
 .infos{
   display: flex;
@@ -177,6 +205,7 @@
   border: none;
   border-radius: 5px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 
@@ -268,10 +297,11 @@
   row-gap: 10px;
   border-radius: 4px;
   text-align: center;
+  width: 100%;
 }
 
 .tb-client input{
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   padding: 5px;
   width: auto;
   border-radius: 4px;
@@ -310,4 +340,322 @@
   padding: 5px;
   border: none;
   border-radius: 5px;
+}
+
+
+/* ********************** PAIEMENT CLIENT *************** */
+#paiement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+#paiement h1{
+  font-weight: bold;
+  color: blueviolet;
+}
+
+
+.table{
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 100%;
+}
+
+.table th{
+  padding: 10px;
+  border: 1px solid #BEE3F8;
+}
+
+.table td {
+  padding: 15px;
+  border: 1px solid #BEE3F8;
+}
+.table tr:nth-child(even) { background: #BEE3F8; }
+
+.table button{
+  background: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease;
+  padding: 5px;
+}
+/* *************** FACTURES **************** */
+#facture {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#facture h1{
+  color: blueviolet;
+  font-weight: bold;
+}
+
+/* ** *************** HomeClient *************** */
+.facture-paiement{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#home__cl{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#h1-home{
+  font-style: italic;
+  margin-top: 77px;
+}
+
+
+.en-ov h1,
+.pl h1{
+  font-weight: bold;
+  margin: 30px 20px 10px;
+  color: blueviolet;
+}
+
+
+/************** AJOUT ABONNEMENTS ************** */
+#abonnement{
+  display: flex;
+  justify-content: center;
+}
+
+.abonnement{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  row-gap: 10px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.abonnement input{
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  width: 100%;
+  outline-color: blue;
+}
+
+
+#ajout-ab{
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease;
+  padding: 5px;
+  background-color: blueviolet;
+}
+
+
+/*********************** ENTRAINEUR TABLE *************/
+#entraineur{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entraineur-table-cont{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  border-radius: 4px;
+  row-gap: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.entraineur-table-cont input{
+  border: 2px solid #ccc;
+  padding: 5px 15px;
+  border-radius: 4px;
+  outline-color: blue;
+}
+
+#aj-entraineur{
+  background: blueviolet;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease;
+  padding: 5px;
+}
+
+/*** *********** FACTURE ***************/
+.facture-form{
+  background-color: white;
+  width: fit-content;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.facture-form h1{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.payer-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.payer-form input{
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  outline: blue;
+}
+.payer-form button{
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: blueviolet;
+  color: white;
+}
+
+#payer-facture{
+  display: flex;
+  justify-content: center;
+}
+
+/***************** EQUIPEMENT ******************/
+#equip-table{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+#equip-table input{
+  border: 2px solid #ccc;
+  padding: 5px;
+  outline-color: blue;
+  border-radius: 4px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.tb-equipement{
+  background-color: white;
+  width: 100%;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+
+/************GESTIONNAIRE **********/
+#gestionnaire-home{
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.row-2{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.inner{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin: 10px 50px;
+  padding: 20px 9px;
+  column-gap: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.inner-1{
+  width: 100%;
+}
+
+
+/********** AJOUT EQUIPEMENT ***********************/
+#ajout-equip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aj-equip{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 15px;
+}
+.aj-equip input{
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/*************** AJOUT ENTRAINEUR ******************/
+.ajout-entr-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.ajout-entr-form input,
+.ajout-entr-form select,
+.ajout-entr-form textarea{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  outline-color: blue;
+}
+
+.ajout-entr-form button{
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.ajout-ent-container{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.ajout-ent-container h1{
+  color: black;
+  font-weight: bold;
+}
+
+#aj-entraineur{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E5E5E5;
+}
+.ajout-entr-form select{
+  color: black;
 }

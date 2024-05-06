@@ -43,3 +43,30 @@
     left: 0;
     color: white;
 }
+
+.popup {
+    width: 40%;
+    height: 80%;
+    margin: auto;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding: 20px;
+    z-index: 2;
+}
+
+.popup button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: rgb(225, 149, 7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}

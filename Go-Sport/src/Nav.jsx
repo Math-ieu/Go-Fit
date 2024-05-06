@@ -1,30 +1,44 @@
 import React, {useState} from 'react'
 import './nav.css'
-import man from './assets/img/man.png'
 
-
-const Nav = () => {
+const Nav = ({links, profileImage, user}) => {
 
   const  [isOpen, setIsOpen] = useState(false);
 
   return (
     <div id="nav">
-        <div className='navbar'>
+        <div className='navbar' style={{ zIndex: isOpen ? 1 : 0 }}>
           <div className="gofit__logo">
             <h1>GO-FIT</h1>
           </div>
 
           <div className='nav__links'>
-            <a href="#">Planning</a>
-            <a href="#">Abonnements</a>
-            <a href="#">factures</a>
-            <a href="#">Payements</a>
+            {links.map((link, index) => (
+              <a key={index} href={link.href}>{link.text}</a>
+            ))}
           </div>
 
           <div className='profile__image'>
-            <img src={man} alt="" onClick={() => setIsOpen(true)}/>
+            <img src={profileImage} alt="" onClick={() => setIsOpen(true)}/>
           </div>
         </div>
+        {isOpen && (
+          <div className='popup'>
+            <h2>Informations de l'utilisateur</h2>
+            <p>Nom : {user.firstname} {user.lastname}</p>
+            <p>Email : {user.email}</p>
+            <p>Sexe : {user.sex}</p>
+            <p>Poids : {user.weight}</p>
+            <p>Taille : {user.height}</p>
+            <p>Motivation : {user.motivation}</p>
+            <p>Objectif : {user.goal}</p>
+            <p>Type d'entraînement : {user.trainingtype}</p>
+            <p>Téléphone : {user.phone}</p>
+            <p>Date de naissance : {user.birthdate.toLocaleDateString()}</p>
+            <p>Date d'inscription : {user.registrationdate.toLocaleDateString()}</p>
+            <button onClick={() => setIsOpen(false)}>Fermer</button>
+          </div>
+        )}
 
     </div>
   )

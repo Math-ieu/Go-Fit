@@ -6,6 +6,7 @@ import Planning from "./Planning";
 import PlanningGestionnaire from "./PlanningGestionnaire";
 import PlanningOuvert from "./PlanningOuvert";
 import Nav from "./Nav";
+import man from './assets/img/man.png' 
 
 function HomeClient({
   user = {
@@ -42,7 +43,17 @@ function HomeClient({
 
   return (
     <div id="home__cl" className="home__cl">
-      <Nav />
+        <Nav 
+    links={[
+      {href: "#", text: "Planning"},
+      {href: "#", text: "Abonnements"},
+      {href: "#", text: "factures"},
+      {href: "#", text: "Payements"}
+    ]}
+    profileImage={man}
+    user={user}
+  />
+
       <h1 id="h1-home">Bonjour, bienvenue {user1.firstname} !</h1>
       {/*
       <table>

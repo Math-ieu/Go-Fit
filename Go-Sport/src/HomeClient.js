@@ -6,6 +6,7 @@ import Planning from "./Planning";
 import PlanningGestionnaire from "./PlanningGestionnaire";
 import PlanningOuvert from "./PlanningOuvert";
 import Nav from "./Nav";
+import man from './assets/img/man.png' 
 
 function HomeClient({
   user = {
@@ -49,7 +50,8 @@ function HomeClient({
       {href: "#", text: "factures"},
       {href: "#", text: "Payements"}
     ]}
-    profileImage="./assets/img/man.png"
+    profileImage={man}
+    user={user}
   />
 
       <h1 id="h1-home">Bonjour, bienvenue {user1.firstname} !</h1>

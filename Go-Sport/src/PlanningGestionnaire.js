@@ -26,11 +26,11 @@ function PlanningGestionnaire() {
   const timeSlots = ['06:00-08:00', '08:00-10:00', '10:00-12:00', '14:00-16:00', '16:00-18:00', '18:00-20:00', '20:00-22:00'];
 
   return (
-    <>
-      <table>
+    <div className="planning-container">
+      <table className='planning-table'>
         <thead>
           <tr>
-            <th>Date</th>
+            <th className='date-header'>Date</th>
             {timeSlots.map((timeSlot) => (
               <th key={timeSlot}>{timeSlot}</th>
             ))}
@@ -39,8 +39,8 @@ function PlanningGestionnaire() {
         <tbody>
           {Object.entries(sessionsByDate).map(([date, sessions]) => {
             return (
-              <tr key={date}>
-                <td>
+              <tr key={date} className='date-row'>
+                <td className='date-cell'>
                   {date} ({sessions[0].jour_de_la_semaine})
                 </td>
                 {timeSlots.map((timeSlot) => {
@@ -50,6 +50,7 @@ function PlanningGestionnaire() {
                   );
                   return (
                     <td
+                      className={session ? "time-slot-cell occupied" : "time-slot-cell"}
                       key={timeSlot}
                       onClick={() => session && handleClick(session)}
                       style={{ cursor: session ? "pointer" : "default" }}
@@ -63,7 +64,7 @@ function PlanningGestionnaire() {
           })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

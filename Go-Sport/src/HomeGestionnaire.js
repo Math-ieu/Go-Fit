@@ -7,6 +7,7 @@ import EquipmentTable from './EquipmentTable';
 import AbonnementTable from './AbonnementTable';
 import Planning from './Planning';
 import PlanningOuvert from './PlanningOuvert';
+import Nav from './Nav';
 
 
 function HomeGestionnaire({ user = {
@@ -18,9 +19,10 @@ function HomeGestionnaire({ user = {
 }}) {
   return (
     <div id='gestionnaire-home'>
-      <h1 style={{ color: "#333", textAlign: "center", fontStyle:'italic' }}>Bonjour, bienvenue {user.nom} !</h1>
-      <div style={{width: 'fit-content'}}> {/* bricolage à arranger et autres que j'ai oublié haha*/}
-        <table className='table' style={{margin:'10px 50px'}}>
+      <Nav /> 
+      <h1 style={{ color: "#333", textAlign: "center", fontStyle:'italic', margin:"30px 0" }}>Bonjour, bienvenue {user.nom} !</h1>
+      {/* <div style={{width: 'fit-content'}}> bricolage à arranger et autres que j'ai oublié haha */}
+        {/* <table className='table' style={{margin:'10px 50px'}}>
           <tbody>
             <tr>
               <th>Email</th>
@@ -31,8 +33,8 @@ function HomeGestionnaire({ user = {
               <td>{user.password}</td>
             </tr>
           </tbody>
-        </table>
-      </div>
+        </table> */}
+      {/* </div> */}
       <div className='row-2'>
         <div className='inner'>
           <div className='inner-1'>
@@ -60,6 +62,7 @@ function HomeGestionnaire({ user = {
       <h1 style={{ color: "#333", textAlign: "center", fontWeight:'bold' }}>Nos Entrainements fermés</h1>
       {/*<PlanningGestionnaire/>*/}
       <Planning />
+      <hr />
       <h1 style={{ color: "#333", textAlign: "center" , fontWeight:'bold'}}>Nos Entrainements ouverts</h1>
       {/*<PlanningOuvertGestionnaire/>*/}
       <PlanningOuvert />

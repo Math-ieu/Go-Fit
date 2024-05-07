@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Participer.css'
 
-function Participer({ session, onParticipate }) {
+function Participer({ session, onParticipate, onClose }) {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
 
@@ -23,11 +24,14 @@ function Participer({ session, onParticipate }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Nom" required />
-      <input type="text" value={surname} onChange={e => setSurname(e.target.value)} placeholder="Prénom" required />
-      <button type="submit">Valider</button>
-    </form>
+    <div className="participer-popup">
+      <button onClick={onClose}>X</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Nom" required />
+        <input type="text" value={surname} onChange={e => setSurname(e.target.value)} placeholder="Prénom" required />
+        <button type="submit">Valider</button>
+      </form>
+    </div>
   );
 }
 

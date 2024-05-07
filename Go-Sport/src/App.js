@@ -27,6 +27,7 @@ import PlanningEntraineur from './PlanningEntraineur';
 import PlanningOuvertEntraineur from './PlanningOuvertEntraineur';
 import PlanningGestionnaire from './PlanningGestionnaire';
 import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
+import FacturePaiement from './FacturePaiement';
 import Graph from './stats/graph';
 import AbonnementClient from './AbonnementClient';
 // import aos
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/AjouterClient" element={<AjouterClient />} />
           <Route path="/AjoutEquipement" element={<AjoutEquipement />} />
           <Route path="/ClientTable" element={<ClientTable />} />
+          <Route path="/FacturePaiement" element={<FacturePaiement />} />
           <Route path="/EntraineurTable" element={<EntraineurTable />} />
           <Route path="/AjoutEntraineur" element={<AjoutEntraineur />} />
           <Route path="/Planning" element={<Planning />} />

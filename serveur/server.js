@@ -29,6 +29,11 @@ app.get('/rapports', async (req, res) => {
   res.json(result.rows);
 });
 
+app.get('/AbonnementClient', async (req, res) => {
+  const result = await client.query('SELECT * FROM abonnement');
+  res.json(result.rows);
+  console.log('abonnement from database:', result.rows);
+});
 
 
 app.post('/abonnements', async (req, res) => {

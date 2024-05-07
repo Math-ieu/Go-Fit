@@ -28,6 +28,7 @@ import PlanningOuvertEntraineur from './PlanningOuvertEntraineur';
 import PlanningGestionnaire from './PlanningGestionnaire';
 import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
 import Graph from './stats/graph';
+import AbonnementClient from './AbonnementClient';
 // import aos
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -45,6 +46,7 @@ const App = () => {
     <Router>
       <div className="App">
         <Routes>
+        <Route path="/AbonnementClient" element={<AbonnementClient />} />
           <Route path="/PayerFacture" element={<PayerFacture />} />
           <Route path="/AjouterClient" element={<AjouterClient />} />
           <Route path="/AjoutEquipement" element={<AjoutEquipement />} />

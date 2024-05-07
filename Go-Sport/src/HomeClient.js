@@ -46,7 +46,7 @@ function HomeClient({
         <Nav 
     links={[
       {href: "#", text: "Planning"},
-      {href: "#", text: "Abonnements"},
+      {href: "/AbonnementClient", text: "Abonnements"},
       {href: "#", text: "factures"},
       {href: "#", text: "Payements"}
     ]}
@@ -55,19 +55,6 @@ function HomeClient({
   />
 
       <h1 id="h1-home">Bonjour, bienvenue {user1.firstname} !</h1>
-      {/*
-      <table>
-        <tbody>
-          <tr>
-            <th>Email</th>
-            <th>Password</th>
-          </tr>
-          <tr>
-            <td>{user.email}</td>
-            <td>{user.password}</td>
-          </tr>
-        </tbody>
-  </table>*/}
 
       <div className="facture-paiement">
         <div>
@@ -89,8 +76,6 @@ function HomeClient({
         <PlanningGestionnaire />
       </div>
 
-      {/*<button onClick={() => setPage("factures")}>Mes factures</button>
-      <button onClick={() => setPage("paiements")}>Mes paiements</button>*/}
     </div>
   );
 }

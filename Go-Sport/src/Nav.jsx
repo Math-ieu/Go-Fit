@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './nav.css'
 
-const Nav = ({links, profileImage, user}) => {
+const Nav = ({links, profileImage, user, gofitLink, setPage}) => {
 
   const  [isOpen, setIsOpen] = useState(false);
 
@@ -9,12 +9,12 @@ const Nav = ({links, profileImage, user}) => {
     <div id="nav">
         <div className='navbar' style={{ zIndex: isOpen ? 1 : 0 }}>
           <div className="gofit__logo">
-            <h1>GO-FIT</h1>
+            <h1 onClick={() => setPage('home')}>GO-FIT</h1>
           </div>
 
           <div className='nav__links'>
             {links.map((link, index) => (
-              <a key={index} href={link.href}>{link.text}</a>
+              <a key={index} onClick={() => setPage(link.href)}>{link.text}</a>
             ))}
           </div>
 

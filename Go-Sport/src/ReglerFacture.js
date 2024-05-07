@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
-const PayerFacture = () => {
-  const location = useLocation();
-  const { facture, client } = location.state;
+const PayerFacture = ({ facture, client, onClose }) => {
   const [nomPaiement, setNomPaiement] = useState("");
   const [montantPaiement, setMontantPaiement] = useState("");
-  console.log("facture : " + facture.nom_facture);
-  console.log("" + client);
+
   const handlePayment = async () => {
     try {
       await axios.post("http://localhost:3001/PayerFacture", {
@@ -19,6 +15,7 @@ const PayerFacture = () => {
         date_paiement: new Date().toISOString().split("T")[0], // La date d'aujourd'hui
       });
       alert("Paiement réussi");
+      onClose();
     } catch (error) {
       console.error(
         "Il y a eu une erreur lors du traitement de votre paiement !",
@@ -28,7 +25,8 @@ const PayerFacture = () => {
   };
 
   return (
-    <div id="payer-facture">
+    <div className="payer-facture-popup">
+      <button onClick={onClose}>X</button>
       <div className="facture-form">
         <form className="payer-form">
           <h1>Effectuer un paiement</h1>

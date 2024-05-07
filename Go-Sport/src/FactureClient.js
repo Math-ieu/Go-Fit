@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import PayerFacture from './ReglerFacture';
-
-
-
 
 function FactureClient({ user }) {
   const [factures, setFactures] = useState([]);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [selectedFacture, setSelectedFacture] = useState(null);
 
   useEffect(() => {
     const fetchFactures = async () => {
@@ -46,7 +42,7 @@ function FactureClient({ user }) {
               <td>{facture.date_limite_facture}</td>
               <td>
               {facture.etat_facture === 'P' ? 'Payé' :
-                <span onClick={() => navigate('/PayerFacture', { state: { facture: facture , client: user } })} style={{cursor: 'pointeur'}}>
+                <span onClick={() => setSelectedFacture(facture)} style={{cursor: 'pointer'}}>
                   Impayé
                 </span>
               }
@@ -55,6 +51,9 @@ function FactureClient({ user }) {
           ))}
         </tbody>
         </table>
+        {selectedFacture && (
+          <PayerFacture facture={selectedFacture} client={user} onClose={() => setSelectedFacture(null)} />
+        )}
       </div>
     );
   }

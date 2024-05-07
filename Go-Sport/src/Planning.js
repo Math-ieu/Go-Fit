@@ -1,5 +1,4 @@
-
-
+// Planning.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Participer from './Participer';
@@ -22,7 +21,6 @@ function Planning() {
     setSelectedSession(session);
   };
 
-  // Group sessions by date
   const sessionsByDate = sessions.reduce((acc, session) => {
     acc[session.date_session] = [...(acc[session.date_session] || []), session];
     return acc;
@@ -65,13 +63,10 @@ function Planning() {
       </table>
 
       {selectedSession && (
-        <Participer session={selectedSession} onParticipate={() => setSelectedSession(null)} />
+        <Participer session={selectedSession} onParticipate={() => setSelectedSession(null)} onClose={() => setSelectedSession(null)} />
       )}
-      <Link to="/AjoutPlanning" className="add-planning-button">
-        Ajouter un planning
-      </Link>
     </div>
   );
-}
+} 
 
 export default Planning;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ReactDOM from 'react-dom';
 
 const PayerFacture = ({ facture, client, onClose }) => {
   const [nomPaiement, setNomPaiement] = useState("");
@@ -24,34 +25,37 @@ const PayerFacture = ({ facture, client, onClose }) => {
     }
   };
 
-  return (
-    <div className="payer-facture-popup">
-      <button onClick={onClose}>X</button>
-      <div className="facture-form">
-        <form className="payer-form">
-          <h1>Effectuer un paiement</h1>
-          <hr />
-          <label htmlFor="n">Nom du paiement</label>
-          <input
-            id="n"
-            type="text"
-            value={nomPaiement}
-            onChange={(e) => setNomPaiement(e.target.value)}
-          />
-          <label htmlFor="m">Montant</label>
-          <input
-            id="m"
-            type="number"
-            value={montantPaiement}
-            onChange={(e) => setMontantPaiement(e.target.value)}
-          />
+  return ReactDOM.createPortal(
+    (
+      <div className="payer-facture-popup">
+        <button onClick={onClose}>X</button>
+        <div className="facture-form">
+          <form className="payer-form">
+            <h1>Effectuer un paiement</h1>
+            <hr />
+            <label htmlFor="n">Nom du paiement</label>
+            <input
+              id="n"
+              type="text"
+              value={nomPaiement}
+              onChange={(e) => setNomPaiement(e.target.value)}
+            />
+            <label htmlFor="m">Montant</label>
+            <input
+              id="m"
+              type="number"
+              value={montantPaiement}
+              onChange={(e) => setMontantPaiement(e.target.value)}
+            />
 
-          <button type="button" onClick={handlePayment}>
-            Payer
-          </button>
-        </form>
+            <button type="button" onClick={handlePayment}>
+              Payer
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    ),
+    document.body 
   );
 };
 

@@ -1,73 +1,68 @@
-import React from 'react';
-//import PlanningGestionnaire from './PlanningGestionnaire';
-//import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
+import PlanningGestionnaire from './PlanningGestionnaire';
+import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
 import ClientTable from './ClientTable';
 import EntraineurTable from './EntraineurTable';
 import EquipmentTable from './EquipmentTable';
 import AbonnementTable from './AbonnementTable';
-import Planning from './Planning';
-import PlanningOuvert from './PlanningOuvert';
-import Nav from './Nav';
+import React, { useState } from "react";
+import Planning from "./Planning";
+import PlanningOuvert from "./PlanningOuvert";
+import EquipmentClientDiv from './EquipmentClientDiv';
+import EntraineurAbonnementDiv from './EntraineurAbonnementDiv';
+import Nav from "./Nav";
+import man from './assets/img/man.png'
+import salle from './assets/img/salle.jpg'
+import Graph from './stats/graph';
 
 
-function HomeGestionnaire({ user = {
-  id: 1,
-  nom: "Nom1",
-  email: "c@c.cc",
-  password: "c",
-  age: 50
-}}) {
+
+function HomeGestionnaire({ user }) {
+  const [page, setPage] = useState("home");
+
+  const renderPage = () => {
+    switch (page) {
+      case "EquipmentClientDiv":
+        return <EquipmentClientDiv />;
+      case "EntraineurAbonnementDiv":
+        return <EntraineurAbonnementDiv />;
+      case "PlanningOuvert":
+        return <PlanningOuvert />;
+      case "PlanningGestionnaire":
+        return <PlanningGestionnaire />;
+      default:
+        return (
+          <div>
+            <h1>Bonjour, bienvenue administrateur {user.firstname} !</h1>
+            <div className='home__image'>
+              <Graph/>
+            </div>
+          </div>
+        );
+    }
+  };
+  
+
   return (
-    <div id='gestionnaire-home'>
-      <Nav /> 
-      <h1 style={{ color: "#333", textAlign: "center", fontStyle:'italic', margin:"30px 0" }}>Bonjour, bienvenue {user.nom} !</h1>
-      {/* <div style={{width: 'fit-content'}}> bricolage à arranger et autres que j'ai oublié haha */}
-        {/* <table className='table' style={{margin:'10px 50px'}}>
-          <tbody>
-            <tr>
-              <th>Email</th>
-              <th>Password</th>
-            </tr>
-            <tr>
-              <td>{user.email}</td>
-              <td>{user.password}</td>
-            </tr>
-          </tbody>
-        </table> */}
-      {/* </div> */}
-      <div className='row-2'>
-        <div className='inner'>
-          <div className='inner-1'>
-            <h1 style={{ color: "#333", textAlign: "center", fontWeight:'bold' }}>La liste des Equipements</h1>
-            <EquipmentTable/>
-          </div>
-          <div className='inner-1'>
-            <h1 style={{ color: "#333", textAlign: "center", fontWeight:'bold' }}>La liste des clients</h1>
-            <ClientTable/>
-          </div>
-        </div>
+    <div id="home__cl" className="home__cl">
+      <Nav 
+        links={[
+          {href: "EquipmentClientDiv", text: "Les équipements et les clients", onClick: () => setPage("EquipmentClientDiv")},
+          {href: "EntraineurAbonnementDiv", text: "Les entraineurs et les abonnements", onClick: () => setPage("EntraineurAbonnementDiv")},
+          {href: "PlanningOuvert", text: "Les plannings ouverts", onClick: () => setPage("PlanningOuvert")},
+          {href: "PlanningGestionnaire", text: "PlanningGestionnaire", onClick: () => setPage("PlanningGestionnaire")},
+          ]}
+        profileImage={man}
+        user={user}
+        gofitLink="http://localhost:3000/HomeGestionnaire"
+        setPage={setPage} 
+      />
 
-        <div className='inner'>
-          <div className='inner-1'>
-            <h1 style={{ color: "#333", textAlign: "center", fontWeight:'bold' }}>La liste des Entraineurs</h1>
-            <EntraineurTable/>
-          </div>
-          <div className='inner-1'>
-            <h1 style={{ color: "#333", textAlign: "center" , fontWeight:'bold'}}>La liste des abonnements</h1>
-            <AbonnementTable/>
-          </div>
-        </div>
+      <div style={{ marginTop: '6%' }}>
+        {renderPage()}
       </div>
 
-      <h1 style={{ color: "#333", textAlign: "center", fontWeight:'bold' }}>Nos Entrainements fermés</h1>
-      {/*<PlanningGestionnaire/>*/}
-      <Planning />
-      <hr />
-      <h1 style={{ color: "#333", textAlign: "center" , fontWeight:'bold'}}>Nos Entrainements ouverts</h1>
-      {/*<PlanningOuvertGestionnaire/>*/}
-      <PlanningOuvert />
-    </div>
 
+    </div>
   );
 }
 

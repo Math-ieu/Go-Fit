@@ -41,10 +41,10 @@ const Header = () => {
 
       {/* buttons - initally hidden - show in desktop mode */}
       <div className='hidden lg:flex space-x-4'>
-      <Link to="/inscription_connexion"><button className='btn btn-sm text-white hover:text-primary-200 transition'>
+      <Link to="/Go-Fit"><button className='btn btn-sm text-white hover:text-primary-200 transition'>
           {btnLoginText}
         </button></Link>
-        <Link to="/inscription_connexion">
+        <Link to="/Go-Fit">
           <button className='btn btn-sm btn-primary'>{btnSignupText}</button>
           </Link>
       </div>

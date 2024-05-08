@@ -30,6 +30,8 @@ import PlanningOuvertGestionnaire from './PlanningOuvertGestionnaire';
 import FacturePaiement from './FacturePaiement';
 import Graph from './stats/graph';
 import AbonnementClient from './AbonnementClient';
+import EquipmentClientDiv from './EquipmentClientDiv';
+import EntraineurAbonnementDiv from './EntraineurAbonnementDiv';
 // import aos
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -49,6 +51,8 @@ const App = () => {
         <Routes>
         <Route path="/AbonnementClient" element={<AbonnementClient />} />
           <Route path="/PayerFacture" element={<PayerFacture />} />
+          <Route path="/EquipmentClientDiv" element={<EquipmentClientDiv />} />
+          <Route path="/EntraineurAbonnementDiv" element={<EntraineurAbonnementDiv />} />
           <Route path="/AjouterClient" element={<AjouterClient />} />
           <Route path="/AjoutEquipement" element={<AjoutEquipement />} />
           <Route path="/ClientTable" element={<ClientTable />} />
@@ -74,7 +78,7 @@ const App = () => {
           <Route path="/HomeGestionnaire" element={<HomeGestionnaire />} />
           <Route path="/RapportTable" element={<RapportTable />} />
           <Route path="/EquipmentTable" element={<EquipmentTable />} />
-          <Route path="/inscription_connexion" element={<InscriptionConnexion />} />
+          <Route path="/Go-Fit" element={<InscriptionConnexion />} />
           <Route path="/stats" element={<Graph />} />
           <Route path="/" element={<>
             <div className='max-w-[1440px] mx-auto bg-page overflow-hidden relative'>

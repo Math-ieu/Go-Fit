@@ -24,6 +24,33 @@ client.connect();
 
 
 
+
+
+app.put('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const { firstname, lastname, address, email, password, sex, weight, height, motivation, goal, trainingtype, phone, birthdate, registrationdate, photo } = req.body;
+  try {
+    await client.query('UPDATE client SET firstname = $1, lastname = $2, address = $3, email = $4, password = $5, sex = $6, weight = $7, height = $8, motivation = $9, goal = $10, trainingtype = $11, phone = $12, birthdate = $13, registrationdate = $14, photo = $15 WHERE id = $16', [firstname, lastname, address, email, password, sex, weight, height, motivation, goal, trainingtype, phone, birthdate, registrationdate, photo, id]);
+    res.json({ message: 'Utilisateur mis à jour avec succès' });
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour de l\'utilisateur', error);
+    res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
+
+app.put('/entraineur/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nom, prenom, sexe, photo, adresse, email, password, etat, phrase_accroche } = req.body;
+  try {
+    await client.query('UPDATE entraineur SET nom = $1, prenom = $2, sexe = $3, photo = $4, adresse = $5, email = $6, password = $7, etat = $8, phrase_accroche = $9, goal = $10, trainingtype = $11, phone = $12, birthdate = $13, registrationdate = $14, photo = $15 WHERE id = $16', [firstname, lastname, address, email, password, sex, weight, height, motivation, goal, trainingtype, phone, birthdate, registrationdate, photo, id]);
+    res.json({ message: 'Utilisateur mis à jour avec succès' });
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour de l\'utilisateur', error);
+    res.status(500).json({ message: 'Erreur interne du serveur' });
+  }
+});
+
+
 app.get('/rapports', async (req, res) => {
   const result = await client.query('SELECT * FROM rapport');
   res.json(result.rows);

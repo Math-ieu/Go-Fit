@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Participer from './Participer';
-import AjoutPlanning from './AjoutPlanning';
 import { Link } from 'react-router-dom';
 import './client.css'
 

@@ -410,6 +410,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 122%;
 }
 #h1-home{
   font-style: italic;
@@ -586,6 +587,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+  width: 122%;
 }
 
 .row-2{

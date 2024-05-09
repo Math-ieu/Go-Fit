@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function AbonnementClient() {
+function AbonnementClient({ user }) {
   const [abonnements, setAbonnements] = useState([]);
   const [error, setError] = useState(null);
 

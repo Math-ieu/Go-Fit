@@ -24,7 +24,7 @@ function HomeClient({
       case "Planning":
         return <Planning />;
       case "AbonnementClient":
-        return <AbonnementClient />;
+        return <AbonnementClient user={user} />;
       case "FacturePaiement":
         return <FacturePaiement user={user} />;
       default:

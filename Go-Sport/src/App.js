@@ -7,6 +7,7 @@ import ClientTable from './ClientTable';
 import EntraineurTable from './EntraineurTable';
 import AjoutEntraineur from './AjoutEntraineur';
 import AjouterClient from './AjouterClient';
+import InterfaceCommande from './InterfaceCommande';
 import AjoutEquipement from './AjoutEquipement';
 import EquipmentTable from './EquipmentTable';
 import Planning from './Planning';
